@@ -4,7 +4,7 @@
 
 Instead, it uses Socratic questioning to guide you to your own insight.
 
-> ChatGPT gives you answers. Socratic Duck tell you how to get to those anwsers.
+> ChatGPT gives you answers. Socratic Duck tell you how to get to those answers.
 
 ---
 
@@ -19,26 +19,20 @@ Backed by cognitive science: you remember solutions you discover far better than
 ## Quick Start
 
 ```bash
-# 1. Clone
+# Option A: npm (recommended)
+npm install -g socratic-duck
+cd $(npm root -g)/socratic-duck && cd ui-tui && npm install && cd ..
+sorduck build
+sorduck setup
+sorduck
+
+# Option B: git clone
 git clone https://github.com/Meinianda-L/Socratic-Duck.git
 cd Socratic-Duck
-
-# 2. Install Node deps + build ink engine
 cd ui-tui && npm install && cd ..
 ./run.sh build
-
-# 3. Configure API (interactive)
 ./run.sh setup
-
-# 4. Launch
 ./run.sh
-```
-
-Optional: symlink to your PATH so you can type `sorduck` from anywhere:
-
-```bash
-ln -s "$(pwd)/run.sh" ~/bin/sorduck   # ensure ~/bin is in $PATH
-sorduck
 ```
 
 **Prerequisites**: Python 3.9+, Node.js 18+, npm.

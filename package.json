@@ -1,0 +1,30 @@
+{
+  "name": "socratic-duck",
+  "version": "0.3.0",
+  "description": "AI rubber duck that lives in your terminal — reads your code, asks Socratic questions, never gives the answer",
+  "license": "MIT",
+  "author": "Meinianda-L",
+  "repository": "github:Meinianda-L/Socratic-Duck",
+  "keywords": ["rubber-duck", "debugging", "socratic", "cli", "terminal", "ai", "llm"],
+  "bin": {
+    "sorduck": "./run.sh",
+    "sorduck-setup": "./tui_gateway/setup.py"
+  },
+  "files": [
+    "run.sh",
+    "tui_gateway/",
+    "ui-tui/src/",
+    "ui-tui/package.json",
+    "ui-tui/package-lock.json",
+    "ui-tui/tsconfig.json",
+    "ui-tui/tsconfig.build.json",
+    "ui-tui/scripts/",
+    "ui-tui/packages/hermes-ink/package.json",
+    "ui-tui/packages/hermes-ink/index.js",
+    "ui-tui/packages/hermes-ink/index.d.ts",
+    "ui-tui/packages/hermes-ink/ambient.d.ts",
+    "ui-tui/packages/hermes-ink/text-input.js",
+    "ui-tui/packages/hermes-ink/text-input.d.ts",
+    "ui-tui/packages/hermes-ink/src/"
+  ]
+}
