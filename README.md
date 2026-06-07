@@ -20,8 +20,8 @@ Backed by cognitive science: you remember solutions you discover far better than
 
 ```bash
 # 1. Clone
-git clone https://github.com/Meinianda-L/socratic-duck.git
-cd socratic-duck
+git clone https://github.com/Meinianda-L/Socratic-Duck.git
+cd Socratic-Duck
 
 # 2. Install Node deps + build ink engine
 cd ui-tui && npm install && cd ..
