@@ -1,10 +1,10 @@
 # 🐤 Socratic Duck
 
-**An AI rubber duck that lives in your terminal. It reads your code, understands your bugs, but *never* gives you the answer.**
+**An AI rubber duck that lives in your terminal. It reads your code, understands your problems,knows how to fix them, but *never* gives you the answer.**
 
 Instead, it uses Socratic questioning to guide you to your own insight.
 
-> ChatGPT gives you answers. Socratic Duck gives you questions.
+> ChatGPT gives you answers. Socratic Duck tell you how to get to those anwsers.
 
 ---
 
@@ -19,19 +19,29 @@ Backed by cognitive science: you remember solutions you discover far better than
 ## Quick Start
 
 ```bash
-cd ~/Desktop/SocraticDuck
-./run.sh          # builds + launches TUI
-# or
-sorduck           # symlink in PATH
+# 1. Clone
+git clone https://github.com/Meinianda-L/socratic-duck.git
+cd socratic-duck
+
+# 2. Install Node deps + build ink engine
+cd ui-tui && npm install && cd ..
+./run.sh build
+
+# 3. Configure API (interactive)
+./run.sh setup
+
+# 4. Launch
+./run.sh
 ```
 
-First run: `sorduck setup` (or `/setup` inside the TUI) to configure your API provider.
+Optional: symlink to your PATH so you can type `sorduck` from anywhere:
 
 ```bash
-sorduck setup
+ln -s "$(pwd)/run.sh" ~/bin/sorduck   # ensure ~/bin is in $PATH
+sorduck
 ```
 
-Supports OpenAI, Anthropic, DeepSeek, and any OpenAI-compatible endpoint. API key stored in `.env`.
+**Prerequisites**: Python 3.9+, Node.js 18+, npm.
 
 ---
 
@@ -154,7 +164,7 @@ Via `sorduck setup` (interactive) or manually in `.env`:
 ```bash
 SOCRATIC_API_KEY="sk-..."        # Required
 SOCRATIC_BASE_URL="https://..."  # API endpoint
-SOCRATIC_MODEL="deepseek-v4-pro" # Model name
+SOCRATIC_MODEL="" # Model name
 ```
 
 All config uses the `SOCRATIC_` prefix. No JSON config files.

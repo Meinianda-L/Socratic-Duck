@@ -1,11 +1,21 @@
 #!/usr/bin/env bash
 set -e
 
-ROOT="$(cd "$(dirname "$0")" && pwd)"
+THIS_FILE="$(python3 -c 'import os,sys; print(os.path.realpath(sys.argv[1]))' "$0")"
+ROOT="$(cd "$(dirname "$THIS_FILE")" && pwd)"
 TUI="$ROOT/ui-tui"
 
 if [ "${1:-}" = "setup" ]; then
   exec python3 -m tui_gateway.setup
+fi
+
+if [ "${1:-}" = "build" ]; then
+  echo "Building ink engine..."
+  (cd "$TUI/packages/hermes-ink" && node ../../node_modules/.bin/esbuild src/entry-exports.ts --bundle --platform=node --format=esm --packages=external --outdir=dist)
+  mkdir -p "$TUI/node_modules/@hermes/ink/dist"
+  cp "$TUI/packages/hermes-ink/dist/entry-exports.js" "$TUI/node_modules/@hermes/ink/dist/"
+  echo "Done."
+  exit 0
 fi
 
 if [ ! -f "$TUI/node_modules/@hermes/ink/dist/entry-exports.js" ]; then
