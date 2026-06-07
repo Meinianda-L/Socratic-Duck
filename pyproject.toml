@@ -1,0 +1,16 @@
+[project]
+name = "socratic-duck"
+version = "0.3.0"
+description = "AI rubber duck that debugs through Socratic questioning — Hermes TUI + Python gateway"
+requires-python = ">=3.9"
+dependencies = []
+
+[project.scripts]
+sorduck-setup = "tui_gateway.setup:main"
+
+[build-system]
+requires = ["setuptools>=64.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["."]
